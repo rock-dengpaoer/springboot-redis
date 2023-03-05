@@ -60,7 +60,16 @@ public class Result<T> {
         this.data = t;
     }
 
+    private Result(String code, String message){
+        this.code = code;
+        this.message = message;
+    }
+
     public static Result success(String message, Object data){
         return new Result(success, message, data);
+    }
+
+    public static Result error(String message){
+        return new Result(error, message);
     }
 }

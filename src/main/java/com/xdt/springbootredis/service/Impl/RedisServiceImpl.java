@@ -58,4 +58,9 @@ public class RedisServiceImpl implements RedisService {
             return new ArrayList<>();
         }
     }
+
+    @Override
+    public Boolean set(String key, String value) {
+        return execute().set(key.getBytes(), value.getBytes());
+    }
 }

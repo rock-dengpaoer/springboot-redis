@@ -1,8 +1,10 @@
 package com.xdt.springbootredis.Controller;
 
+import com.xdt.springbootredis.Entry.User;
 import com.xdt.springbootredis.Until.Result;
 import com.xdt.springbootredis.dto.RedisInfo;
 import com.xdt.springbootredis.service.Impl.RedisServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +18,7 @@ import java.util.List;
  **/
 @RestController
 @RequestMapping("/")
+@Slf4j
 public class MainController {
 
     @GetMapping("/hello")
@@ -30,5 +33,16 @@ public class MainController {
     public Result getRedisInfo(){
         List<RedisInfo> redisInfo = redisService.getRedisInfo();
         return Result.success("success", redisInfo);
+    }
+
+    @PostMapping("/set")
+    public Result set(String key, String value){
+        try {
+            this.redisService.set(key, value);
+            return Result.success("success", null);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return Result.error(e.getMessage());
+        }
     }
 }

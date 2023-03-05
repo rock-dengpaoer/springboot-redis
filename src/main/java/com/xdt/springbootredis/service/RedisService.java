@@ -11,4 +11,6 @@ public interface RedisService {
      * @return
      */
     List<RedisInfo> getRedisInfo();
+
+    Boolean set(String key, String value);
 }
