@@ -1,9 +1,10 @@
 package com.xdt.springbootredis.Controller;
 
 import com.xdt.springbootredis.Entry.User;
+import com.xdt.springbootredis.Until.Result;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.*;
 
 /**
  * @author XDT
@@ -14,6 +15,5 @@ import java.util.*;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
-
+    
 }

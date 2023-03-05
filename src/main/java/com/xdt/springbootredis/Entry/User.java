@@ -1,4 +1,5 @@
 package com.xdt.springbootredis.Entry;
+import java.io.Serializable;
 
 /**
  * @author XDT
@@ -6,10 +7,11 @@ package com.xdt.springbootredis.Entry;
  * @Description: TODO
  * @Date 2023/3/5 11:44
  **/
-public class User {
+/*序列化接口*/
+public class User implements Serializable {
     private Long id;
     private String name;
-    private String age;
+    private int age;
 
     @Override
     public String toString() {
@@ -36,11 +38,11 @@ public class User {
         this.name = name;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 }

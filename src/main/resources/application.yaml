@@ -1,5 +1,9 @@
 server:
   port: 8000
-debug: true
-
-
+#debug: true
+spring:
+  redis:
+    connect-timeout: 5000
+    database: 0
+    host: 192.168.3.127
+    port: 6379
